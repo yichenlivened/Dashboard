@@ -21,12 +21,22 @@ angular
     'leaflet-directive',
     'nvd3'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+      .when('/GeospatialView', {
+        templateUrl: 'views/geospatialView.html',
+        controller: 'GeospatialViewCtrl',
+        controllerAs: 'geospatialView'
+      })
+      .when('/keyMetrics', {
+        templateUrl: 'views/keyMetrics.html',
+        controller: 'KeyMetricsCtrl',
+        controllerAs: 'keyMetrics'
+      })
+      .when('/dataView', {
+        templateUrl: 'views/dataView.html',
+        controller: 'DataViewCtrl',
+        controllerAs: 'dataView'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -34,6 +44,17 @@ angular
         controllerAs: 'about'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/GeospatialView'
       });
-  });
+
+
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
+  })
+.factory('NavService', function ($location) {
+  return {
+    init: function () {
+      $("#" + $location.path().slice(1)).addClass('active');
+    }
+}
+});
