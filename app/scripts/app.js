@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'leaflet-directive',
-    'nvd3'
+    'nvd3',
+    'ngTable'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
