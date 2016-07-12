@@ -8,7 +8,12 @@
  * Controller of the dashboradApp
  */
 angular.module('dashboradApp')
-  .controller('KeyMetricsCtrl', ['$scope', '$http', function ($scope, $http) {
+  .controller('KeyMetricsCtrl', ['$scope', '$http', 'NavService', function ($scope, $http, NavService) {
+
+    NavService.init();
+    $scope.toggleNav = NavService.toggleNav();
+    $scope.page = "Key Metrics View";
+
     $scope.optionsPayingCustomers = {
       chart: {
         type: 'lineChart',
@@ -59,7 +64,7 @@ angular.module('dashboradApp')
       return arrData;
     }
 
-    $http.get('numberOfPayingCustomers.csv').success(function(data){
+    $http.get('data/numberOfPayingCustomers.csv').success(function(data){
       $scope.dataLinePayingCustomers = [{
         values: CSVToArray(data),
         key: 'Paying customers',
@@ -72,7 +77,7 @@ angular.module('dashboradApp')
     $scope.optionsReportedIssues = {
       chart: {
         type: 'historicalBarChart',
-        height: 400,
+        height: 450,
         margin : {
           top: 20,
           right: 20,
@@ -99,7 +104,7 @@ angular.module('dashboradApp')
       }
     };
 
-    $http.get('numberOfReportedIssues.csv').success(function(data){
+    $http.get('data/numberOfReportedIssues.csv').success(function(data){
       $scope.dataBarReportedIssues = [{
         values: CSVToArray(data),
         key: 'Reported Issues',

@@ -51,10 +51,16 @@ angular
     // use the HTML5 History API
     $locationProvider.html5Mode(true);
   })
-.factory('NavService', function ($location) {
+.factory('NavService', ["$location", function ($location) {
   return {
     init: function () {
+      $(".navBtn").removeClass("active");
       $("#" + $location.path().slice(1)).addClass('active');
+    },
+    toggleNav: function(){
+      return function(){
+        $("#wrapper").toggleClass("toggled");
+      };
     }
 }
-});
+}]);

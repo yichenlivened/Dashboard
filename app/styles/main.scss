@@ -69,6 +69,9 @@ body {
   list-style: none;
 }
 
+.active{
+  background-color:rgba(255,255,255,0.2);
+}
 .sidebar-nav li {
   text-indent: 20px;
   line-height: 40px;

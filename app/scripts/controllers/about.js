@@ -8,10 +8,9 @@
  * Controller of the dashboradApp
  */
 angular.module('dashboradApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('AboutCtrl', ['$scope', 'NavService', function ($scope, NavService) {
+    NavService.init();
+    $scope.toggleNav = NavService.toggleNav();
+    $scope.page = "About";
+
+  }]);
