@@ -64,16 +64,6 @@ angular.module('dashboradApp')
       return arrData;
     }
 
-    $http.get('data/numberOfPayingCustomers.csv').success(function(data){
-      $scope.dataLinePayingCustomers = [{
-        values: CSVToArray(data),
-        key: 'Paying customers',
-        color: '#7777ff',
-        area: true      //area - set to true if you want this line to turn into a filled area chart.
-      }];
-      console.log(data);
-    });
-
     $scope.optionsReportedIssues = {
       chart: {
         type: 'historicalBarChart',
@@ -104,14 +94,31 @@ angular.module('dashboradApp')
       }
     };
 
-    $http.get('data/numberOfReportedIssues.csv').success(function(data){
-      $scope.dataBarReportedIssues = [{
-        values: CSVToArray(data),
-        key: 'Reported Issues',
-        color: '#7777ff',
-        area: true      //area - set to true if you want this line to turn into a filled area chart.
-      }];
-      console.log($scope.data);
-    });
+    function getData(){
+      $http.get('data/numberOfReportedIssues.csv').success(function(data){
+        $scope.dataBarReportedIssues = [{
+          values: CSVToArray(data),
+          key: 'Reported Issues',
+          color: '#7777ff',
+          area: true      //area - set to true if you want this line to turn into a filled area chart.
+        }];
+        console.log($scope.data);
+      });
 
+      $http.get('data/numberOfPayingCustomers.csv').success(function(data){
+        $scope.dataLinePayingCustomers = [{
+          values: CSVToArray(data),
+          key: 'Paying customers',
+          color: '#7777ff',
+          area: true      //area - set to true if you want this line to turn into a filled area chart.
+        }];
+        console.log(data);
+      });
+    }
+
+    setInterval(function(){
+      getData();
+    }, 10000);
+
+    getData();
   }]);

@@ -36,10 +36,16 @@ angular.module('dashboradApp')
         });
     }
 
-    $http.get('data/employees.json').success(function(data){
-      $scope.employeesData = data.companies;
-      $scope.markers = dataToMarkers($scope.employeesData);
-    });
+    function getData(){
+      $http.get('data/employees.json').success(function(data){
+        $scope.employeesData = data.companies;
+        $scope.markers = dataToMarkers($scope.employeesData);
+      });
+    }
 
+    setInterval(function(){
+      getData();
+    }, 10000);
 
+    getData();
   }]);

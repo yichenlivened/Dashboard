@@ -14,11 +14,18 @@ angular.module('dashboradApp')
     $scope.page = "Data View";
 
     var self = this;
-    $http.get('data/issues.json').success(function(data){
-      self.dataset = data.issues;
-      self.tableParams = new NgTableParams({}, {
-        dataset: self.dataset
+    function getData(){
+      $http.get('data/issues.json').success(function(data){
+        self.dataset = data.issues;
+        self.tableParams = new NgTableParams({}, {
+          dataset: self.dataset
+        });
       });
-    });
+    }
 
+    setInterval(function(){
+      getData();
+    }, 10000);
+
+    getData();
   }]);

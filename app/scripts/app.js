@@ -20,7 +20,8 @@ angular
     'ngTouch',
     'leaflet-directive',
     'nvd3',
-    'ngTable'
+    'ngTable',
+    'btford.socket-io'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
