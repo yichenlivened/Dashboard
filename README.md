@@ -10,3 +10,9 @@ Run `grunt` for building and `grunt serve` for preview.
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+## Library
+[ng-table](http://ng-table.com/#/)
+
+## Reference
+[10+ Solutions for Responsive Data Tables](http://exisweb.net/responsive-table-plugins-and-patterns)

@@ -6,7 +6,7 @@
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading">Reported issues</div>
-      <table ng-table="dataView.tableParams" class="table table-condensed table-bordered table-striped">
+      <table ng-table="dataView.tableParams" class="table table-condensed table-bordered table-striped responsive-table">
         <tr ng-repeat="row in $data">
           <td data-title="'Open Time'" filter="{timestamp: 'text'}" sortable="'timestamp'">{{row.timestamp | date : format : timezone}}</td>
           <td data-title="'Customer Name'" filter="{customerName: 'text'}" sortable="'customerName'">{{row.customerName}}</td>
