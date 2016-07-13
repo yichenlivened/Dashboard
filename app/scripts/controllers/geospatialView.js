@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name dashboradApp.controller:MainCtrl
@@ -8,8 +6,8 @@
  * Controller of the dashboradApp
  */
 angular.module('dashboradApp')
-  .controller('GeospatialViewCtrl', ['$scope', '$http', 'NavService', function ($scope, $http, NavService) {
-
+  .controller('GeospatialViewCtrl', ['$scope', '$http', 'NavService', 'myService', function ($scope, $http, NavService, myService) {
+    'use strict';
     NavService.init();
     $scope.toggleNav = NavService.toggleNav();
     $scope.page = "Geospatial View";
@@ -37,8 +35,8 @@ angular.module('dashboradApp')
     }
 
     function getData(){
-      $http.get('data/employees.json').success(function(data){
-        $scope.employeesData = data.companies;
+      myService.async('data/employees.json').then(function(response){
+        $scope.employeesData = response.data.companies;
         $scope.markers = dataToMarkers($scope.employeesData);
       });
     }

@@ -53,6 +53,7 @@ angular
     // use the HTML5 History API
     $locationProvider.html5Mode(true);
   })
+
 .factory('NavService', ["$location", function ($location) {
   return {
     init: function () {
@@ -64,5 +65,20 @@ angular
         $("#wrapper").toggleClass("toggled");
       };
     }
-}
-}]);
+  };
+}])
+
+.factory('myService',function($http){
+  var myService = {
+    async: function(url){
+      var promise = $http.get(url).success(function (response) {
+          return response.data;
+        }).error(function (error) {
+          console.log(error);
+          alert(error);
+        });
+       return promise;
+      }
+  };
+  return myService;
+});

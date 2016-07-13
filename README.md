@@ -22,5 +22,11 @@ Running `grunt serve:dist` will test app in production mode.
 
 [JavaScript Polling @Davidwalsh](https://davidwalsh.name/javascript-polling)
 
+[JavaScript Promises](http://www.html5rocks.com/en/tutorials/es6/promises/)
+
+[Processing $http response in service](http://stackoverflow.com/questions/12505760/processing-http-response-in-service)
+
+['this' vs $scope in AngularJS controllers](http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers)
+
 ## Further development
 Plan to add HTML5 WebSockets to make truly responsive web dashboard.

@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name dashboradApp.controller:keyMetricsCtrl
@@ -8,8 +6,8 @@
  * Controller of the dashboradApp
  */
 angular.module('dashboradApp')
-  .controller('KeyMetricsCtrl', ['$scope', '$http', 'NavService', function ($scope, $http, NavService) {
-
+  .controller('KeyMetricsCtrl', ['$scope', '$http', 'NavService', 'myService', function ($scope, $http, NavService, myService) {
+    'use strict';
     NavService.init();
     $scope.toggleNav = NavService.toggleNav();
     $scope.page = "Key Metrics View";
@@ -95,24 +93,21 @@ angular.module('dashboradApp')
     };
 
     function getData(){
-      $http.get('data/numberOfReportedIssues.csv').success(function(data){
+      myService.async('data/numberOfReportedIssues.csv').then(function(response){
         $scope.dataBarReportedIssues = [{
-          values: CSVToArray(data),
+          values: CSVToArray(response.data),
           key: 'Reported Issues',
           color: '#7777ff',
           area: true      //area - set to true if you want this line to turn into a filled area chart.
         }];
-        console.log($scope.data);
       });
-
-      $http.get('data/numberOfPayingCustomers.csv').success(function(data){
+      myService.async('data/numberOfPayingCustomers.csv').then(function(response){
         $scope.dataLinePayingCustomers = [{
-          values: CSVToArray(data),
+          values: CSVToArray(response.data),
           key: 'Paying customers',
           color: '#7777ff',
           area: true      //area - set to true if you want this line to turn into a filled area chart.
         }];
-        console.log(data);
       });
     }
 
