@@ -8,9 +8,13 @@
 angular.module('dashboradApp')
   .controller('KeyMetricsCtrl', ['$scope', '$http', 'NavService', 'myService', function ($scope, $http, NavService, myService) {
     'use strict';
-    NavService.init();
     $scope.toggleNav = NavService.toggleNav();
     $scope.page = "Key Metrics View";
+
+    NavService.init();
+    myService.init();
+    loadData();
+    myService.pulling(loadData, $scope.page);
 
     $scope.optionsPayingCustomers = {
       chart: {
@@ -92,7 +96,7 @@ angular.module('dashboradApp')
       }
     };
 
-    function getData(){
+    function loadData(){
       myService.async('data/numberOfReportedIssues.csv').then(function(response){
         $scope.dataBarReportedIssues = [{
           values: CSVToArray(response.data),
@@ -111,9 +115,4 @@ angular.module('dashboradApp')
       });
     }
 
-    setInterval(function(){
-      getData();
-    }, 10000);
-
-    getData();
   }]);
