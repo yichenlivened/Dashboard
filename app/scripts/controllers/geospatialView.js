@@ -13,7 +13,7 @@ angular.module('dashboradApp')
     NavService.init();
     myService.init();
     loadData();
-    myService.pulling(loadData, $scope.page);
+    myService.pulling(loadData);
 
     $scope.employeesData = [];
     angular.extend($scope, {
@@ -41,8 +41,12 @@ angular.module('dashboradApp')
     function loadData(){
       myService.async('data/employees.json').then(function(response){
         console.log(response);
-        $scope.employeesData = response.data.companies;
-        $scope.markers = dataToMarkers($scope.employeesData);
+        if(angular.toJson(response.data.companies) === angular.toJson($scope.employeesData) && $scope.employeesData != null){
+          console.log("no update");
+        } else{
+          $scope.employeesData = response.data.companies;
+          $scope.markers = dataToMarkers($scope.employeesData);
+        }
       });
     }
 

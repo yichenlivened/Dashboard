@@ -14,7 +14,10 @@ angular.module('dashboradApp')
     NavService.init();
     myService.init();
     loadData();
-    myService.pulling(loadData, $scope.page);
+    myService.pulling(loadData);
+
+    $scope.numberOfReportedIssuesValue = null;
+    $scope.dataLinePayingCustomersValue = null;
 
     $scope.optionsPayingCustomers = {
       chart: {
@@ -98,20 +101,30 @@ angular.module('dashboradApp')
 
     function loadData(){
       myService.async('data/numberOfReportedIssues.csv').then(function(response){
-        $scope.dataBarReportedIssues = [{
-          values: CSVToArray(response.data),
-          key: 'Reported Issues',
-          color: '#7777ff',
-          area: true      //area - set to true if you want this line to turn into a filled area chart.
-        }];
+        if($scope.numberOfReportedIssuesValue === response.data && $scope.numberOfReportedIssuesValue != null){
+            console.log("numberOfReportedIssues no update");
+        } else{
+          $scope.numberOfReportedIssuesValue = response.data;
+          $scope.dataBarReportedIssues = [{
+            values: CSVToArray($scope.numberOfReportedIssuesValue),
+            key: 'Reported Issues',
+            color: '#7777ff',
+            area: true      //area - set to true if you want this line to turn into a filled area chart.
+          }];
+        }
       });
       myService.async('data/numberOfPayingCustomers.csv').then(function(response){
+        if($scope.dataLinePayingCustomersValue === response.data && $scope.dataLinePayingCustomersValue != null){
+          console.log("dataLinePayingCustomers no update");
+        } else{
+        $scope.dataLinePayingCustomersValue = response.data;
         $scope.dataLinePayingCustomers = [{
-          values: CSVToArray(response.data),
+          values: CSVToArray($scope.dataLinePayingCustomersValue),
           key: 'Paying customers',
           color: '#7777ff',
           area: true      //area - set to true if you want this line to turn into a filled area chart.
         }];
+        }
       });
     }
 

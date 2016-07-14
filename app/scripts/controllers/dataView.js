@@ -13,15 +13,19 @@ angular.module('dashboradApp')
     NavService.init();
     myService.init();
     loadData();
-    myService.pulling(loadData, $scope.page);
+    myService.pulling(loadData);
 
     var self = this;
-    var dataset;
+    $scope.dataset = null;
 
     function loadData(){
       myService.async('data/issues.json').then(function(response){
-          dataset = response.data.issues;
-          self.tableParams = new NgTableParams({}, {dataset: dataset});
+        if(angular.toJson(response.data) === angular.toJson($scope.dataset) && $scope.dataset != null){
+            console.log("no update");
+        } else{
+          $scope.dataset = response.data;
+          self.tableParams = new NgTableParams({}, {dataset: $scope.dataset.issues});
+        }
       });
     }
 

@@ -66,11 +66,6 @@ angular
 
 .factory('myService',function($http){
   var myService = {
-    dataDir: {
-        "Key Metrics View" : "numberOfPayingCustomers, numberOfReportedIssues",
-        "Geospatial View" : "employees",
-        "Data View" : "issues"
-    },
     interval: setInterval(function(){},10000),
     async: function(url){
       var promise = $http.get(url).success(function (response) {
@@ -81,23 +76,10 @@ angular
         });
        return promise;
     },
-    pulling: function(loadData, view){
+    pulling: function(loadData){
       myService.interval = setInterval(function(){
-        $http.get('data/update.json').success(function(response){
-          var dataFiles = myService.dataDir[view].split(",");
-          dataFiles.forEach(function(dataFile){
-            if(response[dataFile]){
-              console.log(dataFile + " updated.");
-              loadData();
-            } else{
-              console.log(dataFile + " no change.");
-            }
-          })
-        }).error(function (error) {
-          console.log(error);
-          alert(error);
-        });
-      }, 10000);
+          loadData();
+      }, 3000);
     },
     init: function(){
       clearInterval(myService.interval);
