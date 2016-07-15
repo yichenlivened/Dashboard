@@ -1,15 +1,15 @@
 # Dashborad
 A real-time corporate dashboard application using Angular MVC framework. :sunglasses:
 
-- Responsiveness: App is equally functional on mobile and desktop, using responsive design to ensure its displayed in a useable state.
+- **Responsiveness:** App is equally functional on mobile and desktop, using responsive design to ensure its displayed in a useable state.
 
-- Framework Implementation: App makes use of a Front-End Framework (Angular) and properly separates data from the user interface.
+- **Framework Implementation:** App makes use of a Front-End Framework (Angular) and properly separates data from the user interface.
 
-- Data Formats: Each dashboard uses external data files (data not stored directly within the application, json and csv).
+- **Data Formats:** Each dashboard uses external data files (data not stored directly within the application, json and csv).
 
-- Near Real Time Updates: dashboard components update their displays in “near” real-time without requiring a refresh of the application.
+- **Near Real Time Updates:** dashboard components update their displays in “near” real-time without requiring a refresh of the application.
 
-- App Delivery: App includes a build process (Grunt). Assets are minimized and concatenated as appropriate.
+- **App Delivery:** App includes a build process (Grunt). Assets are minimized and concatenated as appropriate.
 
 ## Build & development
 Run `grunt` for building and `grunt serve` for preview.
