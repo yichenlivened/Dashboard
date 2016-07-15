@@ -1,12 +1,16 @@
 # Dashborad
-A corporate dashboard application using a front-end MVC framework.
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+A real-time corporate dashboard application using Angular MVC framework.
+
+Responsiveness: App is equally functional on mobile and desktop, using responsive design to ensure its displayed in a useable state.
+Framework Implementation: App makes use of a Front-End Framework (Angular) and properly separates data from the user interface.
+Data Formats: Each dashboard uses external data files (data not stored directly within the application, json and csv).
+Near Real-Time Updates: dashboard components update their displays in “near” real-time without requiring a refresh of the application.
+App Delivery: App includes a build process (Grunt). Assets are minimized and concatenated as appropriate.
 
 ## Build & development
-
 Run `grunt` for building and `grunt serve` for preview.
 Running `grunt serve:dist` will test app in production mode.
+Change the .csv and .json files in app/data can see the Real-Time Updates features. 
 
 ## Library
 [leaflet-directive](http://tombatossals.github.io/angular-leaflet-directive/#!/)
