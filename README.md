@@ -1,7 +1,7 @@
 # Dashborad
 A real-time corporate dashboard application using Angular MVC framework. :sunglasses:
 
-- **Responsiveness:** App is equally functional on mobile and desktop, using responsive design to ensure its displayed in a useable state.
+- **Responsiveness:** App is equally functional on mobile and desktop.
 
 - **Framework Implementation:** App makes use of a Front-End Framework (Angular) and properly separates data from the user interface.
 
