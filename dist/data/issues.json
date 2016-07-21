@@ -1,15 +1,6 @@
 {
   "issues":[
     {
-      "timestamp": "2016-07-11T18:25:43.511Z",
-      "customerName": "Eason",
-      "email": "eason@gmail.com",
-      "description": "Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.",
-      "status": "open",
-      "closedTimeStamp":"pending",
-      "employeeName":"pending"
-    },
-    {
       "timestamp": "2016-07-10T18:25:43.511Z",
       "customerName": "Eason",
       "email": "eason@gmail.com",
