@@ -1,4 +1,4 @@
-# Dashborad
+# Dashboard
 A real-time corporate dashboard application using Angular MVC framework. :sunglasses:
 
 - **Responsiveness:** App is equally functional on mobile and desktop.
