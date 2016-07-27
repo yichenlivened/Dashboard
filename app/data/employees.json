@@ -1,0 +1,40 @@
+{
+  "companies":[
+    {
+      "location": "New York",
+      "lat": 44.71278,
+      "lng": -74.00594,
+      "number": 130
+    },
+    {
+      "location": "Washington, DC",
+      "lat": 32.90719,
+      "lng": -77.03687,
+      "number": 245
+    },
+    {
+      "location": "Illinois",
+      "lat": 40.63312	,
+      "lng": -89.39853,
+      "number": 338
+    },
+    {
+      "location": "Seattle",
+      "lat": 47.60621	,
+      "lng": -122.33207,
+      "number": 212
+    },
+    {
+      "location": "San Fracisco",
+      "lat": 37.77493	,
+      "lng": -122.41942,
+      "number": 734
+    },
+    {
+      "location": "Texas",
+      "lat": 31.96860	,
+      "lng": -99.90181,
+      "number": 560
+    }
+  ]
+}
